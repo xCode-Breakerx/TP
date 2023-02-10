@@ -129,7 +129,7 @@ class TestCalculator(TestCase):
 
     def test_square_root(self):
         self.assertEqual(calculator.Calculator.square_root(1), 1)  # sqrt(1) = 1
-        self.assertEqual(calculator.Calculator.square_root(9), 3)  # sqrt(9) = 3
+        self.assertEqual(calculator.Calculator.square_root(49), 7)  # sqrt(9) = 3
 
         # add together different types
         with self.assertRaises(TypeError):
@@ -146,6 +146,16 @@ class TestCalculator(TestCase):
         # Assume that the params are verified
         with self.assertRaises(TypeError):
             calculator.Calculator.square_root(-2)  # sqrt is not defined for negative numbers
+
+    def test_calculate(self):
+
+        # should throw any exception if the operator is invalid
+        with self.assertRaises(Exception):
+            calculator.calculate(None, 0, 1)
+
+        # add together different types and invalid operator
+        with self.assertRaises(TypeError):
+            calculator.calculate("add", "", 1)
 
 
 if __name__ == '__main__':

@@ -15,14 +15,6 @@ def check_params(func: callable) -> callable:
     return wrapper
 
 
-# def check_params_single(func: callable) -> callable:
-#     def wrapper(x, y):
-#         if not isinstance(x, (int, float, complex, decimal.Decimal)) or not isinstance(y, (int, float, complex, decimal.Decimal)):
-#             raise TypeError
-#         return func(x, y)
-#
-#     return wrapper
-
 class Calculator:
     # use the static method decorator, otherwise the functions signatures below assume that the first parameter is "self".
     # these methods are meant to be called statically judging from the signature
